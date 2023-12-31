@@ -1,0 +1,8 @@
+---
+- name: Update Ubuntu Server
+  hosts: samaei
+  tasks:
+    - name: Perform system update
+      apt:
+        upgrade: dist
+        update_cache: yes
