@@ -1,0 +1,6 @@
+- name: Run Lynis script
+  command: lynis audit system
+  args:
+    creates: /tmp/lynis.report
+  tags:
+    - lynis

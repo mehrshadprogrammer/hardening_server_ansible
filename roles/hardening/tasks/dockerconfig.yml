@@ -1,0 +1,16 @@
+- name: Configure Docker service
+  template:
+    src: docker.service.j2
+    dest: /etc/systemd/system/docker.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Docker service
+
+- name: Ensure Docker service is running
+  service:
+    name: docker
+    state: started
+    enabled: true
+  tags:
+    - docker

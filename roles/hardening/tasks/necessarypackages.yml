@@ -1,0 +1,7 @@
+- name: Install necessary packages
+  apt:
+    name:
+      - package1
+      - package2
+      - package3
+    state: present

@@ -1,15 +1,15 @@
----
-- name: configure network setting
+- name: Configure network settings
   template:
-    src: network_setting.j2
+    src: network_settings.j2
     dest: /etc/network/interfaces
     owner: root
     group: root
     mode: '0644'
-  notify: Rstart network service
-- name: Ensure network service is runnig 
-  service: 
-    name: network
+  notify: Restart network service
+
+- name: Ensure network service is running
+  service:
+    name: networking
     state: started
     enabled: true
   tags:

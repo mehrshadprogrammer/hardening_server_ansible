@@ -1,0 +1,16 @@
+- name: Configure firewall rules
+  template:
+    src: firewall_rules.j2
+    dest: /etc/firewall_rules
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Reload firewall
+
+- name: Ensure firewall is running and enabled
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+  tags:
+    - firewall

@@ -1,0 +1,16 @@
+- name: Configure NTP service
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart NTP service
+
+- name: Ensure NTP service is running
+  service:
+    name: ntp
+    state: started
+    enabled: true
+  tags:
+    - ntp
