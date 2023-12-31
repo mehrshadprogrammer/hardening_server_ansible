@@ -1,0 +1,17 @@
+---
+- name: config SSH service
+  template:
+    src: sshd_config.j2
+    dest: /etc/ssh/ssh_config
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart SSH service
+- name: Ensure SSH service is runnig 
+  service: 
+    name: sshd
+    state: started
+    enabled: true
+  tags: 
+    - ssh
+    

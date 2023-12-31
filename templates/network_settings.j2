@@ -1,0 +1,6 @@
+auto eth0
+iface eth0 inet static
+        address {{ ip_address }}
+        netmask {{ netmask }}
+        gateway {{ gateway }}
+        dns-nameservers {{ dns_nameservers|join(' ') }}

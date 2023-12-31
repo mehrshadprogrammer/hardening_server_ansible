@@ -1,0 +1,10 @@
+---
+- name: stop ans disable unnecessary service
+  service:
+    name: "{{ item }}"
+    state: stoped
+    enable: no
+  loop:
+    - telnet
+    - ftp
+    - rsh

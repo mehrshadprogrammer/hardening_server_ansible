@@ -1,0 +1,25 @@
+---
+- name: Harden Debain Linux Server
+  hosts: samaei
+  become: yes
+  tasks:
+    - name: include task update system packages
+      include_tasks: /roles/hardening/tasks/updatetask.yml
+    - name: include task stop and disable unnecessary services
+      include_tasks: /roles/hardening/tasks/unnecessary.yml
+    - name: include task firewall config
+      include_tasks: /roles/hardening/tasks/firewall.yml
+    - name: include task ssh config and chang pass autnentication
+      include_tasks: /roles/hardening/tasks/chagnesshconfigure.yml
+    - name: include task necessary packages
+      include_tasks: /roles/hardening/tasks/necessarypackages.yml
+    - name: include task ntp service 
+      include_tasks: /roles/hardening/tasks/ntpserviceconfig.yml
+    - name: include task docker service
+      include_tasks: /roles/hardening/tasks/dockerconfig.yml
+    - name: include task dns configure 
+      include_tasks: /roles/hardening/tasks/dnsconfig.yml
+    - name: include task sysctl config
+      include_tasks: /roles/hardening/tasks/sysctlconfig.yml
+    - name: include task lynis config
+      include_tasks: /roles/hardening/tasks/lynisscript.yml
